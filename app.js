@@ -22,6 +22,7 @@ app.use (express.static (path.join (__dirname, 'public')));
 app.use (cors ());
 
 // connect to the Database
+// covid 19 MongoDB
 const DATABASE_URL =
   'mongodb+srv://readonly:readonly@covid-19.hip2i.mongodb.net/covid19';
 MongoClient.connect (DATABASE_URL, {
@@ -55,8 +56,8 @@ app.on ('ready', () => {
   console.log ('Connected successfully to MongoDB server');
 });
 
-app.on("exit", function(){
-  redisClient.quit();
+app.on ('exit', function () {
+  redisClient.quit ();
 });
 
 module.exports = app;
